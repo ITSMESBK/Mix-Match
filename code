@@ -5,49 +5,25 @@ di=[]
 web=[]
 uiii=[]
 for i in range(3):
-num=int(input("enter the digit"))
-di.append(num)
+ num=int(input("enter the digit"))
+ di.append(num)
 dw={2:'ABC',3:'DEF',4:'GHI',5:'JKL',6:'MNO',7:'PQRS',8:'TUV',9:'WXYZ'}
 for dii in di:
-if dw[dii] in dw.values():
-web.append(dw[dii])
+    if dw[dii] in dw.values():
+        web.append(dw[dii])
 d1=web[0]
 d2=web[1]
 d3=web[2]
 word = list(''.join(letters) for letters in itertools.product(d1,d2,d3))
 l=[]
 for diu in word:
-if not[m.group() for m in re.finditer(r'((\w)\2)+', diu)] != []:
-if not[m.group() for m in re.finditer(r'((\w)(\w)\2)+', diu)] != []:
-l.append(diu)
+    if not[m.group() for m in re.finditer(r'((\w)\2)+', diu)] != []:
+         if not[m.group() for m in re.finditer(r'((\w)(\w)\2)+', diu)] != []:
+            l.append(diu)
 ww=sorted(l, key=lambda x: sum(1 for y in x if y in 'aeiouAEIOU'), reverse=True)
 if re.findall(r'[AEIOU]',ww[0]):
-print(ww[0],'MATCHES')
+     print('The Best Match',ww[0])
+     print('Other matches',ww)
 else:
-print("Sorry No match Found")
-ans=ww[0]
-for uii in ans:
-uiii.append(uii)
-a1=uiii[0]
-a2=uiii[1]
-a3=uiii[2]
-def Convert(words, di):
-for words in words:
-di.setdefault(words,[]).append(words)
-return di
-alp='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-words = tuple(''.join(letters) for letters in itertools.combinations(alp,3))
-dictionary = {}
-Convert(words, dictionary)
-lis=[]
-liss=[]
-for i in dictionary:
-if re.findall(r'[(.+)'+a1+ '|' +a2+ '|' +a3+'(.+)]',i):
-lis.append(i)
-for j in lis:
-if re.findall(r'[AEIOU][AEIOU][AEIOU]',j):
-liss.append(j)
-if len(liss)>1:
-print('The best matches',liss)
-else:
-print("none")
+    print("Sorry No match Found")
+
